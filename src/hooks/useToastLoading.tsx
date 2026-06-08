@@ -1,43 +1,57 @@
 import { useRef } from 'react';
-import { toast as toastify, type TypeOptions } from 'react-toastify';
+import {
+  toast as toastify,
+  type Id,
+  type ToastContent,
+  type TypeOptions,
+} from 'react-toastify';
 
 type ToastType = TypeOptions | 'loading' | 'dismiss';
 
-type toastLoadingProp = {
+type ToastLoadingProp = {
   message?: string;
   type?: ToastType;
   isLoading?: boolean;
   onClose?: () => void;
 };
 
-type useToastProp = (prop: toastLoadingProp) => void;
+type UseToastProp = (prop: ToastLoadingProp) => void;
 
-export default function useToastLoading(): useToastProp {
-  const toastRef = useRef<string | number | null>(null);
+function renderMessage(message?: string): ToastContent | undefined {
+  if (!message) return undefined;
+  return <div dangerouslySetInnerHTML={{ __html: message }} />;
+}
 
-  function toast(props: any) {
-    if (props.message)
-      props.message = (
-        <div dangerouslySetInnerHTML={{ __html: props.message }} />
-      );
+export default function useToastLoading(): UseToastProp {
+  const toastRef = useRef<Id | null>(null);
 
-    if (props.type) {
-      if (props.type == 'dismiss') {
-        toastify['dismiss'](props.message);
-        toastRef.current = null;
-      } else {
-        if (toastRef.current) {
-          toastify.update(toastRef.current, {
-            render: props.message,
-            type: props.type,
-            autoClose: 5000,
-            isLoading: false,
-            closeButton: true,
-          });
-          setTimeout(props.onClose, 50);
-        } else (toastify as any)[props.type](props.message);
-      }
-    } else toastRef.current = toastify['loading'](props.message);
+  function toast(props: ToastLoadingProp) {
+    const message = renderMessage(props.message);
+
+    if (!props.type || props.type === 'loading') {
+      toastRef.current = toastify.loading(message);
+      return;
+    }
+
+    if (props.type === 'dismiss') {
+      toastify.dismiss(toastRef.current ?? undefined);
+      toastRef.current = null;
+      return;
+    }
+
+    if (toastRef.current) {
+      toastify.update(toastRef.current, {
+        render: message,
+        type: props.type,
+        autoClose: 5000,
+        isLoading: false,
+        closeButton: true,
+      });
+      if (props.onClose) setTimeout(props.onClose, 50);
+      return;
+    }
+
+    toastify(message, { type: props.type });
   }
 
   return toast;

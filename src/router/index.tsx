@@ -1,7 +1,6 @@
 import Loading from '@/components/Loading';
 import React, { lazy, Suspense } from 'react';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
-// import { ProtectedRoute, RoleProtectedRoute } from "./ProtectedRoute";
 
 const Home = lazy(() => import('../pages/Home'));
 

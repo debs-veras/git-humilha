@@ -23,3 +23,8 @@ export interface GitHubRepo {
   archived: boolean;
   open_issues: number;
 }
+
+export interface GitHubProfile {
+  user: GitHubUser;
+  repos: GitHubRepo[];
+}
