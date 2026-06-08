@@ -155,7 +155,7 @@ export default function Home() {
       setProfile(response);
       setIsLoadingProfile(false);
       toast({
-        message: 'Perfil encontrado. Chamando o RoastHub...',
+        message: 'Perfil encontrado. Chamando o Git Humilha...',
         type: 'success',
       });
       await roastProfile(response);
@@ -214,7 +214,7 @@ export default function Home() {
             </div>
             <div className="min-w-0">
               <p className="text-sm font-medium text-muted-foreground">
-                RoastHub
+                Git Humilha
               </p>
               <h1 className="truncate text-lg font-semibold">
                 Auditoria sem piedade
@@ -406,7 +406,7 @@ export default function Home() {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold">
-                          Veredito do RoastHub
+                          Veredito do Git Humilha
                         </h3>
                         <p className="text-sm text-red-800 dark:text-red-200">
                           {roast?.provider === 'gemini'

@@ -109,7 +109,7 @@ function buildRoastPrompt(profile: GitHubProfile) {
   const summary = summarizeProfile(profile);
 
   return `
-Você é o redator principal de um app chamado "RoastHub".
+Você é o redator principal de um app chamado "Git Humilha".
 Sua missão é transformar dados públicos de um perfil GitHub em uma humilhação
 engraçada, específica e memorável sobre o portfólio de código.
 

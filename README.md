@@ -1,6 +1,6 @@
-# RoastHub
+# Git Humilha
 
-RoastHub é uma aplicação React que analisa perfis públicos do GitHub e gera um roast técnico sobre os repositórios, linguagens, estrelas, forks, projetos arquivados e sinais de atividade.
+Git Humilha é uma aplicação React que analisa perfis públicos do GitHub e gera um roast técnico sobre os repositórios, linguagens, estrelas, forks, projetos arquivados e sinais de atividade.
 
 A proposta é brincar com o portfólio de código, sem atacar a pessoa por trás do perfil.
 
@@ -113,7 +113,7 @@ Variáveis `VITE_*` ficam expostas no bundle do frontend. Para um projeto públi
 src/
   contexts/          Tema claro/escuro
   hooks/             Hooks compartilhados
-  pages/Home/        Tela principal do RoastHub
+  pages/Home/        Tela principal do Git Humilha
   services/          GitHub API e Gemini API
   types/             Tipos TypeScript
   utils/             Formatadores e utilitários
@@ -121,4 +121,4 @@ src/
 
 ## Aviso
 
-O RoastHub foi feito para humor e crítica técnica leve. O prompt evita ataques sobre aparência, identidade, religião, nacionalidade, saúde ou qualquer característica pessoal fora do contexto do código.
+O Git Humilha foi feito para humor e crítica técnica leve. O prompt evita ataques sobre aparência, identidade, religião, nacionalidade, saúde ou qualquer característica pessoal fora do contexto do código.
